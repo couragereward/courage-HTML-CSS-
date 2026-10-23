@@ -1,34 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Assignment for boxing</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rexitoon – Anime Character Carousel</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="{{ url_for('stylesheet') }}" />
 </head>
 <body>
-    <center>
-        <h1>Welcome to my website</h1>
-     <marquee behavior="infinite" scrollamount="3"><p>Feel free to wonder around, play around, touch a few things, and catch fun as much as you can Sha but not much so that you don't get lost ahbeg I no send anybody go where i no know. and ofcourse my name is Rex</p></marquee>
-    <div>
-        <a href="box1.html">
-       <button>box1</button>
-       </a>
-    </div>
-    <div>
-        <a href="box2.html" class="btn">
-        <button>box2</button>
-        </a>
-    </div>
-    <div><a href="box3.html">
-       <button>box3</button>
-       </a>
-    </div>
-    <div><a href="box4.html">
-       <button>box4</button> 
-       </a> 
-    </div>
-    </center>
-<p>www.codex9ja.email.com</p>   
+
+  <header class="nav">
+    <a class="logo" href="#">
+      <svg width="26" height="22" viewBox="0 0 26 22" aria-hidden="true">
+        <path d="M1 1h7l5 11 5-11h7L15 21h-4z" fill="#5b5bff" />
+      </svg>
+      <span>Rexitoon</span>
+    </a>
+    <nav class="nav-links" aria-label="Main">
+      <a class="active" href="#">Home</a>
+      <a href="#thumbs">Characters</a>
+    </nav>
+    <a class="btn btn-primary btn-sm" href="#thumbs">Get started</a>
+  </header>
+
+  <main>
+    <!-- Viewer: big image on the left, write-up on the right -->
+    <section class="viewer">
+      <div class="stage" id="stage">
+        <img id="mainImg" alt="" />
+
+        <div class="toolbar">
+          <a class="icon-btn" id="downloadBtn" href="#" aria-label="Save image" title="Save image">
+            <svg viewBox="0 0 24 24"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 20h16" /></svg>
+          </a>
+          <button class="icon-btn" id="fullBtn" aria-label="Fill the screen" title="Fill the screen">
+            <svg id="icoExpand" viewBox="0 0 24 24"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5" /></svg>
+            <svg id="icoShrink" viewBox="0 0 24 24" hidden><path d="M9 4v5H4M15 4v5h5M9 20v-5H4M15 20v-5h5" /></svg>
+          </button>
+        </div>
+
+        <button class="arrow arrow-prev" data-dir="-1" aria-label="Previous character">
+          <svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7" /></svg>
+        </button>
+        <button class="arrow arrow-next" data-dir="1" aria-label="Next character">
+          <svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" /></svg>
+        </button>
+
+        <div class="dots" id="dots" aria-hidden="true"></div>
+      </div>
+
+      <aside class="info" aria-live="polite">
+        <p class="series" id="series"></p>
+        <h1 id="name"></h1>
+        <p class="bio" id="bio"></p>
+        <ul class="tags" id="tags"></ul>
+
+        <div class="info-actions">
+          <button class="btn btn-ghost" data-dir="-1">
+            <svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7" /></svg> Previous
+          </button>
+          <button class="btn btn-primary" data-dir="1">
+            Next <svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" /></svg>
+          </button>
+        </div>
+        <p class="counter"><span id="current">1</span> of <span id="total">1</span></p>
+      </aside>
+    </section>
+
+    <!-- Tiny images -->
+    <section class="collection" id="thumbs">
+      <div class="collection-head">
+        <h2>Pick a character</h2>
+        <p>Select a thumbnail to see the full image and story.</p>
+      </div>
+      <div class="thumbs" id="thumbList" role="tablist" aria-label="Characters"></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="logo"><span>Rexitoon</span></div>
+    <p>Better stories. A brighter you.</p>
+  </footer>
+
+  <script src="{{ url_for('javascript') }}"></script>
 </body>
 </html>

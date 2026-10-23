@@ -21,7 +21,7 @@ app = Flask(__name__, template_folder=".", static_folder=None)
 CHARACTERS = [
     {
         "id": "all-might",
-        "image_file": "all might.jpg",
+        "image_file": "all-might.jpg",
         "name": "All Might (Toshinori Yagi)",
         "anime": "My Hero Academia",
         "tags": ["Hero", "Mentor", "Symbol of Peace"],
@@ -81,7 +81,7 @@ CHARACTERS = [
     },
     {
         "id": "goblin-slayer",
-        "image_file": "goblin slayer.jpg",
+        "image_file": "goblin-slayer.jpg",
         "name": "Goblin Slayer",
         "anime": "Goblin Slayer",
         "tags": ["Adventurer", "Tactician", "Goblin hunter"],
@@ -101,7 +101,7 @@ CHARACTERS = [
     },
     {
         "id": "kaiju-8",
-        "image_file": "kaiju 8.jpg",
+        "image_file": "kaiju-8.jpg",
         "name": "Kafka Hibino",
         "anime": "Kaiju No. 8",
         "tags": ["Defense Force", "Kaiju", "Determined"],
@@ -162,7 +162,7 @@ CHARACTERS = [
     },
     {
         "id": "sung-jin-woo",
-        "image_file": "sung jin wu.jpg",
+        "image_file": "sung-jin-woo.jpg",
         "name": "Sung Jinwoo",
         "anime": "Solo Leveling",
         "tags": ["Hunter", "Shadow Monarch", "Leveling"],

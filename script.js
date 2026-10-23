@@ -55,7 +55,6 @@
     image.src = imageUrl;
   }
 
-  /* ---------- Load data from Flask ---------- */
   fetch("/api/characters")
     .then((r) => r.json())
     .then((data) => {
@@ -71,7 +70,6 @@
       $("bio").textContent = "Make sure the Python server is running, then refresh the page.";
     });
 
-  /* ---------- Build thumbnails + dots ---------- */
   function buildThumbs() {
     thumbList.innerHTML = "";
     characters.forEach((c, i) => {
@@ -103,7 +101,6 @@
     thumbList.scrollTo({ left, behavior: "smooth" });
   }
 
-  /* ---------- Show one character ---------- */
   function show(i, instant = false) {
     index = (i + characters.length) % characters.length;
     const c = characters[index];
@@ -120,13 +117,12 @@
       downloadBtn.href = c.download;
 
       info.classList.remove("swap");
-      void info.offsetWidth; // restart text animation
+      void info.offsetWidth;
       info.classList.add("swap");
 
       mainImg.classList.remove("swap");
     };
 
-    // highlight active thumbnail + dot
     [...thumbList.children].forEach((el, n) => {
       el.classList.toggle("active", n === index);
       el.setAttribute("aria-selected", n === index);
@@ -136,7 +132,6 @@
 
     if (instant) return apply();
 
-    // fade out, swap, fade in
     mainImg.classList.add("swap");
     setTimeout(apply, 220);
   }
@@ -156,7 +151,6 @@
     btn.addEventListener("click", () => (Number(btn.dataset.dir) > 0 ? next() : prev()))
   );
 
-  /* ---------- Fullscreen (stretch icon) ---------- */
   function isFull() {
     return document.fullscreenElement || document.webkitFullscreenElement;
   }
@@ -178,14 +172,12 @@
   document.addEventListener("fullscreenchange", syncFullIcon);
   document.addEventListener("webkitfullscreenchange", syncFullIcon);
 
-  /* ---------- Keyboard ---------- */
   document.addEventListener("keydown", (e) => {
     if (e.key === "ArrowRight") next();
     else if (e.key === "ArrowLeft") prev();
     else if (e.key.toLowerCase() === "f") fullBtn.click();
   });
 
-  /* ---------- Swipe on phones ---------- */
   let startX = null;
   stage.addEventListener("touchstart", (e) => (startX = e.touches[0].clientX), { passive: true });
   stage.addEventListener("touchend", (e) => {
